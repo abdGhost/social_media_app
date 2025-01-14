@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:social_media_app/screens/forget_password_screen.dart';
+import 'package:social_media_app/screens/select_category_screen.dart';
 import 'package:social_media_app/screens/signup_screen.dart';
 import 'package:social_media_app/widgets/custom_button_widget.dart';
 import 'package:social_media_app/widgets/login_background_widget.dart';
@@ -56,7 +57,14 @@ class LoginScreen extends StatelessWidget {
                         const SizedBox(height: 15),
                         CustomButtonWidget(
                           buttonLabel: 'Log in',
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (ctx) => SelectCategoryScreen(),
+                              ),
+                            );
+                          },
                         ),
                         const SizedBox(height: 40),
                         _buildSocialLoginText(),

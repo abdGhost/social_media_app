@@ -40,6 +40,7 @@ dependencies:
   firebase_storage:
   firebase_messaging:
   flutter_svg: ^2.0.17
+  font_awesome_flutter: ^10.8.0
 
 dev_dependencies:
   flutter_test:

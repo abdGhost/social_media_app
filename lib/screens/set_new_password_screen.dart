@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:social_media_app/screens/set_new_password_screen.dart';
 
 import '../constant/app_colors.dart';
 import '../widgets/custom_button_widget.dart';
+import '../widgets/diamond_shape_container_widget.dart';
 import '../widgets/login_background_widget.dart';
 import '../widgets/textfield_widget.dart';
-import 'login_screen.dart';
 
-class ForgetPasswordScreen extends StatefulWidget {
-  const ForgetPasswordScreen({super.key});
+class SetNewPasswordScreen extends StatefulWidget {
+  const SetNewPasswordScreen({super.key});
 
   @override
-  State<ForgetPasswordScreen> createState() => _ForgetPasswordScreenState();
+  State<SetNewPasswordScreen> createState() => _SetNewPasswordScreenState();
 }
 
-class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
+class _SetNewPasswordScreenState extends State<SetNewPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +21,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
       body: SafeArea(
         child: Stack(
           children: [
-            LoginBackgroundWidget(),
+            const LoginBackgroundWidget(),
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
@@ -42,7 +41,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                       children: [
                         const SizedBox(height: 30),
                         Text(
-                          'TYPE YOUR EMAIL',
+                          'SET NEW PASSWORD',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: AppColors.primary,
@@ -50,18 +49,16 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        SizedBox(
-                          height: 10,
-                        ),
+                        const SizedBox(height: 10),
                         Container(
-                          padding: EdgeInsets.symmetric(vertical: 16),
+                          padding: const EdgeInsets.symmetric(vertical: 16),
                           decoration: BoxDecoration(
                             color: AppColors.cardBackgroundColor,
                             borderRadius: BorderRadius.circular(16),
                           ),
-                          child: Center(
+                          child: const Center(
                             child: Text(
-                              'We will send you instruction on \n  how to reset your password',
+                              'Type your new password',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 12,
@@ -70,19 +67,22 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                             ),
                           ),
                         ),
-                        SizedBox(
-                          height: 40,
-                        ),
-                        TextfieldWidget(labelText: 'Email'),
+                        const SizedBox(height: 40),
+                        const TextfieldWidget(labelText: 'Password'),
+                        const SizedBox(height: 20),
+                        const TextfieldWidget(labelText: 'Confirm Password'),
                         const SizedBox(height: 20),
                         CustomButtonWidget(
                           buttonLabel: 'SEND',
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (ctx) => SetNewPasswordScreen()));
-                          },
+                          onPressed: () {},
+                        ),
+                        const SizedBox(height: 10),
+                        // Ensure DiamondShapeWidget has valid constraints
+                        Center(
+                          child: SizedBox(
+                            width: 200,
+                            child: const DiamondShapeWidget(),
+                          ),
                         ),
                       ],
                     ),

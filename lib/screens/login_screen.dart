@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:social_media_app/widgets/outlined_text_widget.dart';
+import 'package:social_media_app/widgets/custom_button_widget.dart';
+import 'package:social_media_app/widgets/login_background_widget.dart';
 import 'package:social_media_app/widgets/socical_icon_button_widget.dart';
+import 'package:social_media_app/widgets/text_button_widget.dart';
+import 'package:social_media_app/widgets/textfield_widget.dart';
 import '../constant/app_colors.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -15,7 +17,7 @@ class LoginScreen extends StatelessWidget {
       body: SafeArea(
         child: Stack(
           children: [
-            _buildBackground(),
+            LoginBackgroundWidget(),
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
@@ -34,13 +36,16 @@ class LoginScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         const SizedBox(height: 30),
-                        _buildTextField('Email'),
+                        TextfieldWidget(labelText: 'Email'),
                         const SizedBox(height: 15),
-                        _buildTextField('Password'),
+                        TextfieldWidget(labelText: 'Password'),
                         const SizedBox(height: 15),
-                        _buildForgotPasswordButton(),
+                        TextButtonWidget(textLabel: 'FORGOT PASSWORD'),
                         const SizedBox(height: 15),
-                        _buildLoginButton(),
+                        CustomButtonWidget(
+                          buttonLabel: 'Log in',
+                          onPressed: () {},
+                        ),
                         const SizedBox(height: 40),
                         _buildSocialLoginText(),
                         const SizedBox(height: 8),
@@ -54,110 +59,6 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
           ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildBackground() {
-    return Column(
-      children: [
-        Container(
-          height: 300,
-          width: double.infinity,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/splash_screen/bg.png'),
-              fit: BoxFit.cover,
-            ),
-          ),
-          child: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  AppColors.black.withOpacity(0.4),
-                  AppColors.black.withOpacity(0.1),
-                ],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-              ),
-            ),
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SvgPicture.asset(
-                    'assets/logo/logo.svg',
-                    height: 20,
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  OutlinedText(text: 'WELCOME')
-                ],
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildTextField(String labelText) {
-    return TextField(
-      decoration: InputDecoration(
-        labelText: labelText,
-        filled: true,
-        fillColor: AppColors.background,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
-          borderSide: BorderSide.none,
-        ),
-        contentPadding: const EdgeInsets.symmetric(
-          vertical: 10,
-          horizontal: 20,
-        ),
-      ),
-    );
-  }
-
-  Widget _buildForgotPasswordButton() {
-    return TextButton(
-      onPressed: () {
-        // Handle forgot password logic
-      },
-      child: const Text(
-        'FORGOT PASSWORD',
-        style: TextStyle(color: AppColors.primary),
-      ),
-    );
-  }
-
-  Widget _buildLoginButton() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10.0),
-      child: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              AppColors.gradientStart,
-              AppColors.gradientEnd,
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-          borderRadius: BorderRadius.circular(30),
-        ),
-        child: ElevatedButton(
-          onPressed: () {
-            // Handle login logic
-          },
-          child: const Text(
-            'LOG IN',
-            style: TextStyle(
-              color: AppColors.white,
-            ),
-          ),
         ),
       ),
     );

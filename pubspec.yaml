@@ -41,6 +41,7 @@ dependencies:
   firebase_messaging:
   flutter_svg: ^2.0.17
   font_awesome_flutter: ^10.8.0
+  curved_labeled_navigation_bar: ^2.0.5
 
 dev_dependencies:
   flutter_test:
@@ -70,8 +71,13 @@ flutter:
     - assets/splash_screen/2.png
     - assets/splash_screen/3.png
     - assets/splash_screen/4.png
-
     - assets/splash_screen/bg.png
+
+    - assets/navbar_icon/category.png
+    - assets/navbar_icon/home.png
+    - assets/navbar_icon/notification.png
+    - assets/navbar_icon/plus.png
+    - assets/navbar_icon/profile.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

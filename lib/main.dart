@@ -29,8 +29,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Social Media App',
       theme: AppTheme.lightTheme,
-      // home: SplashScreen(),
-      home: VerificationScreen(),
+      home: SplashScreen(),
     );
   }
 }

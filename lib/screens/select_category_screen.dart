@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:social_media_app/screens/home_screen.dart';
+import 'package:social_media_app/screens/bottom_navbar.dart';
 import 'package:social_media_app/widgets/custom_button_widget.dart';
 import 'package:social_media_app/widgets/text_button_widget.dart';
 
@@ -153,7 +153,7 @@ class _SelectCategoryScreenState extends State<SelectCategoryScreen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (ctx) => HomeScreen()));
+                                    builder: (ctx) => BottomNavbar()));
                           })
                     ],
                   ),

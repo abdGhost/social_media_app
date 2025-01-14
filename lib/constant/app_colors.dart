@@ -10,4 +10,6 @@ class AppColors {
   static const Color gradientStart = Color(0xFF888BF4);
   static const Color gradientEnd = Color(0xFF5151C6);
   static const Color iconBackground = Color(0xFFE3E4FC);
+
+  static const Color cardBackgroundColor = Color(0xFFF1F1FE);
 }

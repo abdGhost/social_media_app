@@ -52,7 +52,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
         height: 60,
         index: _selectedIndex, // Highlight the active index
         buttonBackgroundColor: Color.fromARGB(232, 81, 81, 198),
-        backgroundColor: const Color.fromARGB(255, 236, 236, 236),
+        backgroundColor: AppColors.background,
         items: [
           CurvedNavigationBarItem(
             child: Image.asset(

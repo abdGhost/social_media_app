@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../constant/app_colors.dart';
+import '../widgets/search_textfield_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -26,17 +27,31 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Row(
           children: [
             Expanded(
-              child: TextfieldWidget(
-                labelText: "Search...", // Use your custom TextfieldWidget
+              child: SearchTextfieldWidget(
+                labelText: "Search...",
               ),
             ),
             const SizedBox(width: 10),
-            IconButton(
-              icon: const Icon(Icons.notifications, color: Colors.grey),
-              onPressed: () {
-                // Handle right icon tap
-                print("Notifications tapped");
-              },
+            Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  color: AppColors.background),
+              child: GestureDetector(
+                onTap: () {
+                  // Handle right icon tap
+                  print("Notifications tapped");
+                },
+                child: Center(
+                  child: Image.asset(
+                    'assets/icons/send.png', // Replace with your asset path
+                    width: 20, // Adjust size as needed
+                    height: 20,
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
             ),
           ],
         ),
@@ -49,9 +64,9 @@ class _HomeScreenState extends State<HomeScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              _buildTabButton("Home", 0),
-              _buildTabButton("Category", 1),
-              _buildTabButton("Profile", 2),
+              _buildTabButton("Popular", 0),
+              _buildTabButton("Trending", 1),
+              _buildTabButton("Following", 2),
             ],
           ),
           const SizedBox(height: 1), // Add some spacing below the buttons
@@ -72,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: isSelected ? Color(0xFFF1F1FE) : Colors.white,
         elevation: 1,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(6),
         ),
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 6),
       ),
@@ -84,8 +99,8 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Text(
         title,
         style: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.bold,
+          fontSize: 14,
+          fontWeight: isSelected ? FontWeight.w800 : FontWeight.w500,
           color: isSelected ? Color(0xFF5151C6) : AppColors.text,
         ),
       ),
@@ -93,44 +108,13 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-// Custom Textfield Widget
-class TextfieldWidget extends StatelessWidget {
-  const TextfieldWidget({
-    super.key,
-    required this.labelText,
-  });
-
-  final String labelText;
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      decoration: InputDecoration(
-        labelText: labelText,
-        prefixIcon: const Icon(Icons.search, color: Colors.grey), // Search icon
-        filled: true,
-        fillColor: AppColors.background, // Use your AppColors.background
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
-          borderSide: BorderSide.none,
-        ),
-        contentPadding: const EdgeInsets.symmetric(
-          vertical: 10,
-          horizontal: 20,
-        ),
-      ),
-    );
-  }
-}
-
-// Widgets for each tab
 class HomeTab extends StatelessWidget {
   const HomeTab({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.grey[300],
+      color: AppColors.background,
       child: const Center(
         child: Text(
           "Welcome to the Home Tab!",

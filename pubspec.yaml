@@ -78,8 +78,15 @@ flutter:
     - assets/navbar_icon/notification.png
     - assets/navbar_icon/plus.png
     - assets/navbar_icon/profile.png
+
     - assets/icons/send.png
     - assets/icons/search.png
+    - assets/icons/chat.png
+    - assets/icons/heart.png
+    - assets/icons/plus-circle.png
+
+    - assets/cards/p1.png
+    - assets/cards/profile.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

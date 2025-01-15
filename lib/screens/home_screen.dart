@@ -14,7 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedTabIndex = 0;
 
   final List<Widget> _tabs = const [
-    HomeTab(),
+    PopularTab(),
     CategoryTab(),
     ProfileTab(),
   ];
@@ -108,18 +108,155 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-class HomeTab extends StatelessWidget {
-  const HomeTab({super.key});
+class PopularTab extends StatelessWidget {
+  const PopularTab({super.key});
+
+  // Sample data for the cards
+  final List<Map<String, dynamic>> cardData = const [
+    {
+      'profileImage': 'assets/cards/profile.png',
+      'username': 'Ghost',
+      'time': '1 hour ago',
+      'postImage': 'assets/cards/p1.png',
+      'likes': 20,
+      'comments': 20,
+    },
+    {
+      'profileImage': 'assets/cards/profile.png',
+      'username': 'Phantom',
+      'time': '2 hours ago',
+      'postImage': 'assets/cards/p1.png',
+      'likes': 30,
+      'comments': 15,
+    },
+    {
+      'profileImage': 'assets/cards/profile.png',
+      'username': 'Shadow',
+      'time': '3 hours ago',
+      'postImage': 'assets/cards/p1.png',
+      'likes': 50,
+      'comments': 25,
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: AppColors.background,
-      child: const Center(
-        child: Text(
-          "Welcome to the Home Tab!",
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
+      child: ListView.builder(
+        itemCount: cardData.length,
+        padding: const EdgeInsets.all(8.0),
+        itemBuilder: (context, index) {
+          final card = cardData[index];
+          return Card(
+            color: Colors.white,
+            elevation: 0,
+            margin: const EdgeInsets.symmetric(vertical: 8.0),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(6),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        card['profileImage'],
+                        width: 30,
+                        height: 30,
+                        fit: BoxFit.cover,
+                      ),
+                      const SizedBox(width: 5),
+                      Text(
+                        card['username'],
+                        style: const TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      const Spacer(),
+                      Text(
+                        card['time'],
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                          color: AppColors.text,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(6),
+                    topRight: Radius.circular(6),
+                  ),
+                  child: Image.asset(
+                    card['postImage'],
+                    height: 200,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        'assets/icons/plus-circle.png',
+                        width: 20,
+                        height: 20,
+                        fit: BoxFit.contain,
+                      ),
+                      const Spacer(),
+                      Row(
+                        children: [
+                          Text(
+                            '${card['comments']}',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                              color: AppColors.text,
+                            ),
+                          ),
+                          const SizedBox(width: 4),
+                          Image.asset(
+                            'assets/icons/chat.png',
+                            width: 20,
+                            height: 20,
+                            fit: BoxFit.contain,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(width: 14),
+                      Row(
+                        children: [
+                          Text(
+                            '${card['likes']}',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                              color: AppColors.text,
+                            ),
+                          ),
+                          const SizedBox(width: 4),
+                          Image.asset(
+                            'assets/icons/heart.png',
+                            width: 20,
+                            height: 20,
+                            fit: BoxFit.contain,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }

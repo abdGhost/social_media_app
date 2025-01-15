@@ -2,6 +2,7 @@ import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
 import 'package:flutter/material.dart';
 import 'package:social_media_app/constant/app_colors.dart';
+import 'package:social_media_app/screens/discover_screen.dart';
 import 'package:social_media_app/screens/home_screen.dart';
 
 class BottomNavbar extends StatefulWidget {
@@ -17,12 +18,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
   // List of screens
   final List<Widget> _screens = [
     HomeScreen(),
-    const Center(
-      child: Text(
-        'Category Screen',
-        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-      ),
-    ),
+    DiscoverScreen(),
     const Center(
       child: Text(
         'Add Screen',

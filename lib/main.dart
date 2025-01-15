@@ -2,7 +2,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:social_media_app/constant/app_theme.dart';
 import 'package:social_media_app/screens/splash_screen.dart';
-import 'package:social_media_app/screens/verification_screen.dart';
 
 void main() async {
   // Ensure Flutter framework is initialized

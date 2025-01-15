@@ -5,7 +5,6 @@ import '../constant/app_colors.dart';
 import '../widgets/custom_button_widget.dart';
 import '../widgets/login_background_widget.dart';
 import '../widgets/textfield_widget.dart';
-import 'login_screen.dart';
 
 class ForgetPasswordScreen extends StatefulWidget {
   const ForgetPasswordScreen({super.key});
